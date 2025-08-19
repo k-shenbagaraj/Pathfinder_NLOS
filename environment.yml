@@ -1,0 +1,24 @@
+name: nlospatch
+channels:
+  - defaults
+  - conda-forge
+  - pytorch
+dependencies:
+  - python=>3
+  - tqdm
+  - colorama
+  - numpy
+  - scipy
+  - scikit-learn
+  - matplotlib
+  - pytorch::pytorch=>1.6
+  - pytorch::torchvision
+  - shapely
+  - einops
+  - fairscale
+  - similaritymeasures
+  - mmcv-full
+  - pyyaml
+  - loguru
+  - prettytable
+  - natsort

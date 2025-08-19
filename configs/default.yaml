@@ -1,0 +1,59 @@
+model_configs:
+  model_name: baseline
+  pretrained: false
+  v_loss: true
+  patch_size: 32
+  dim: 1024
+  depth: 6
+  heads: 16
+  dim_head: 64
+  dropout: 0.1
+  emb_dropout: 0.1
+  token_dropout: 0.1
+
+
+dataset_configs:
+  dataset_root: /home/anonymous/nlos/traindata
+  train_ratio: 0.8
+  route_len: 4
+
+loader_kwargs:
+  num_workers: 12
+  pin_memory: true
+  prefetch_factor: 4
+  persistent_workers: true
+
+train_configs:
+  project_name: nlos_dynamic_train
+  resume: false
+  resume_path: null
+  batch_size: 32
+  seed: 0
+  device: cuda:0
+  amp: true
+  v_loss_alpha: 0
+  loss_total_alpha: 1000
+
+optim_kwargs:
+  optimizer: AdamW
+  lr: 3.0e-4
+  weight_decay: 2.0e-3
+
+schedule_configs:
+  schedule_type: cosine
+  max_epoch: 70
+  cos_T: 70
+  cos_iters: 1
+  cos_mul: 2
+
+distributed_configs:
+  distributed: false
+  gpu_ids: 0
+  world_size: 1
+  local_rank: 0
+  port: 8888
+
+log_configs:
+  log_dir: test
+  save_epoch_interval: 5
+  snapshot_interval: 100

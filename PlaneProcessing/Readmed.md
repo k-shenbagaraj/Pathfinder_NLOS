@@ -1,0 +1,1 @@
+Run `main.py` to process the rosbag files and extract planes, difference images and other data need to be passed to the NLOS-Patch Network 
